@@ -53,8 +53,7 @@ function draw() {
     for (var i = 0; i < 4; i++) {
         for (var j = 0; j < 4; j++) {
             var cell = document.getElementById("board").rows[i].cells[j];
-            if(board[i][j] != 0) cell.innerHTML = board[i][j];
-            else cell.innerHTML = "";
+            paint(cell, board[i][j]);
         }
     }
     document.getElementById("goal").innerHTML = max * 2;
@@ -175,4 +174,58 @@ function checkGameOver() {
         }        
     }
     return true;
+}
+
+function paint(cell, number) {
+    if(number == 0) {
+        cell.innerHTML = "";
+    }else {
+        cell.innerHTML = number;
+    }
+
+    switch(number){
+     case 0: cell.style.color="#595959";
+             cell.style.background="#f2f2f2";
+             break;
+    case 2: cell.style.color="#595959";
+            cell.style.background="#e6e6e6";
+            break;
+
+    case 4:cell.style.color="#595959";
+    cell.style.background="#d9d9d9";
+    break;
+    case 8:cell.style.color="#4d4d4d";
+    cell.style.background="#cccccc";
+    break;
+    case 16:cell.style.color="#4d4d4d";
+    cell.style.background="#bfbfbf";
+    break;
+    case 32:cell.style.color="#4d4d4d";
+    cell.style.background="#a6a6a6";
+    break;
+    case 64:cell.style.color="#4d4d4d";
+    cell.style.background="#999999";
+    break;
+    case 128:cell.style.color="#ffffff";
+    cell.style.background="#8c8c8c";
+    break;
+    case 256:cell.style.color="#ffffff";
+    cell.style.background="#808080";
+    break;
+    case 512:cell.style.color="#ffffff";
+    cell.style.background="#737373";
+    break;
+    case 1024:cell.style.color="#ffffff";
+    cell.style.background="#666666";
+    break;
+    case 2048:cell.style.color="#ffffff";
+    cell.style.background="#595959";
+    break;
+    case 4096:cell.style.color="#ffffff";
+    cell.style.background="#4d4d4d";
+    break;
+    case 8192:cell.style.color="#ffffff";
+    cell.style.background="#404040";
+    break;
+    }
 }

@@ -1,36 +1,50 @@
 #title {
-    
     font-family: 'Jura', sans-serif;
-font-family: 'Roboto Mono', monospace;
-    border-radius: 9px;
+    font-family: 'Roboto Mono', monospace;
+    border-radius: 5px;
     text-align: center;
     vertical-align: center;
     font-size: 18pt;
     font-weight: bold;
     height: 50px;
     width:  303px;
-    background-color: blanchedalmond;
+    background-color: #4d4d4d;
+    color: #f2f2f2
+}
+#guide{
+    font-family: 'Roboto', sans-serif;
+    background-color: #4d4d4d;
+    color: #f2f2f2;
+    height: 50px;
+    width:  303px;
+    font-size: 10pt;
+    border-radius: 5px;
+    text-align: left;
+    padding: 5px;
+    vertical-align: center;
 }
 #score tr td:nth-child(1) {
-    border-radius: 9px;
+    border-radius: 5px;
     text-align: center;
     vertical-align: center;
     font-size: 12 pt;
     font-weight: bold;
     height: 30px;
     width: 224px;
-    background-color: blanchedalmond;
+    background-color: #666666;
+    color: #ffffff;
     font-family: 'Roboto Mono', monospace;
 }
 #score tr td:nth-child(2) {
-    border-radius: 9px;
+    border-radius: 5px;
     text-align: center;
     vertical-align: center;
     font-size: 12pt;
     font-weight: bold;
     height: 30px;
     width: 72px;
-    background-color: blanchedalmond;
+    background-color: #666666;
+    color: #ffffff;
     font-family: 'Roboto Mono', monospace;
 }
 
@@ -42,7 +56,7 @@ font-family: 'Roboto Mono', monospace;
 }
 
 #board td{    
-    border-radius: 9px;
+    border-radius: 10px;
     text-align: center;
     vertical-align: center;
     font-size: 18pt;

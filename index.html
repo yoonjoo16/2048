@@ -1,49 +1,66 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>2048</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@700&family=Roboto+Mono:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@700&family=Roboto+Mono:wght@600&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    <table id = "title">
-        <tr><td>2048</td></tr>
-    </table>
-    <table id = "score">
+    <table id="title">
         <tr>
-            <td>Next Goal</td>
-            <td id = "goal">16</td>
+            <td>2048</td>
         </tr>
     </table>
-            <table id="board">
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
-
-<script type="text/javascript" src="script.js"></script>
+    <table id="score">
+        <tr>
+            <td>Next Goal</td>
+            <td id="goal">16</td>
+        </tr>
+    </table>
+    <table id="board">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <table id="guide">
+        <tr>
+            <td>Move the board pressing the arrow keys on the keyboard. If there are two same numbers colliding, they are merged to the sum of the numbers.</td>
+        </tr>
+        <tr>
+            <td>Each time you move the board, a new number(2 or 4) is generated in a random tile. When you cannot move the tiles or merge any numbers anymore, the game is over.</td>
+        </tr>
+        <tr>
+            <td> Enjoy!</td>
+        </tr>
+    </table>
+    <script type="text/javascript" src="script.js"></script>
 </body>
+
 </html>
