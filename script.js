@@ -1,4 +1,5 @@
 var board = Array(Array(0, 0, 0, 0), Array(0, 0, 0, 0), Array(0, 0, 0, 0), Array(0, 0, 0, 0));
+var max = 2;
 
 //start game
 initBoard();
@@ -16,11 +17,8 @@ function checkKey(e) {
 
 function initBoard() {
     //initialize the board when new game starts.
-    for (var i = 0; i < 4; i++) {
-        for (var j = 0; j < 4; j++) {
-            board[i][j] = 0;
-        }
-    }
+    board = Array(Array(0, 0, 0, 0), Array(0, 0, 0, 0), Array(0, 0, 0, 0), Array(0, 0, 0, 0));
+    max = 2;
     for (var i = 2; i > 0; i--) {
         var x = parseInt(Math.random() * 4);
         var y = parseInt(Math.random() * 4);
@@ -41,6 +39,15 @@ function generateNewNumber() {
     } else generateNewNumber();
 }
 
+function isAnyCellEmpty() {
+    for (var i = 0; i < 4; i++) {
+        for (var j = 0; j < 4; j++) {
+            if(board[i][j] == 0) return true;
+        }
+    }
+    return false;
+}
+
 //draw
 function draw() {    
     for (var i = 0; i < 4; i++) {
@@ -50,6 +57,7 @@ function draw() {
             else cell.innerHTML = "";
         }
     }
+    document.getElementById("goal").innerHTML = max * 2;
 }
 
 //move as the direction and add the numbers
@@ -60,8 +68,15 @@ function move(direction) {
         case "up" : board = rotate(mergeLeft(rotate(board, "left")), "right"); break;
         case "down" : board = rotate(mergeLeft(rotate(board, "right")), "left"); break;
     } 
-    generateNewNumber();
-    draw(); 
+    //if it is still empty, generate number.
+    if(isAnyCellEmpty()) {
+        generateNewNumber();
+        draw(); 
+    }
+    if(checkGameOver()) {        
+        alert("game over!");
+        initBoard();
+    } 
 }
 
 function mergeLeft(array) {
@@ -72,6 +87,9 @@ function mergeLeft(array) {
         for(var j=0; j<3; j++) {
             if(temp[i][j] == temp[i][j+1]) {
                 temp[i][j] = temp[i][j] * 2;
+                if(temp[i][j]>max) {
+                    max = temp[i][j]; 
+                }
                 temp[i][j+1] = 0;
                 temp[i] = moveNumbersToLeft(temp[i]);
             }
@@ -82,12 +100,14 @@ function mergeLeft(array) {
 
 function mergeRight(array) {
     var temp = Array(Array(0, 0, 0, 0), Array(0, 0, 0, 0), Array(0, 0, 0, 0), Array(0, 0, 0, 0));
-
     for(var i = 0; i < 4; i++) {
         temp[i] = moveNumbersToRight(array[i]);
-        for(var j=3; j > 1; j--) {
-            if(temp[i][j] == temp[i][j-1] && temp[i][j] != 0) {
+        for(var j = 3; j > 0; j--) {
+            if(temp[i][j] == temp[i][j-1]) {
                 temp[i][j] = temp[i][j] * 2;
+                if(temp[i][j]>max) {
+                    max = temp[i][j]; 
+                }
                 temp[i][j-1] = 0;
                 temp[i] = moveNumbersToRight(temp[i]);
             }
@@ -136,4 +156,23 @@ function rotate(array, direction) {
                 }             
         }
     return temp;
+}
+
+function checkGameOver() {
+    if(isAnyCellEmpty()) return false;    
+    for(var i = 0; i<4; i++) {
+        for(var j=0; j<3; j++) {
+            if(board[i][j] == board[i][j+1]) {
+                return false;
+            }       
+        }        
+    }
+    for(var i = 0; i<3; i++) {
+        for(var j=0; j<4; j++) {
+            if(board[i][j] == board[i+1][j]) {
+                return false;
+            }       
+        }        
+    }
+    return true;
 }

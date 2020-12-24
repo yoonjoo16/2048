@@ -1,11 +1,47 @@
+#title {
+    
+    font-family: 'Jura', sans-serif;
+font-family: 'Roboto Mono', monospace;
+    border-radius: 9px;
+    text-align: center;
+    vertical-align: center;
+    font-size: 18pt;
+    font-weight: bold;
+    height: 50px;
+    width:  303px;
+    background-color: blanchedalmond;
+}
+#score tr td:nth-child(1) {
+    border-radius: 9px;
+    text-align: center;
+    vertical-align: center;
+    font-size: 12 pt;
+    font-weight: bold;
+    height: 30px;
+    width: 224px;
+    background-color: blanchedalmond;
+    font-family: 'Roboto Mono', monospace;
+}
+#score tr td:nth-child(2) {
+    border-radius: 9px;
+    text-align: center;
+    vertical-align: center;
+    font-size: 12pt;
+    font-weight: bold;
+    height: 30px;
+    width: 72px;
+    background-color: blanchedalmond;
+    font-family: 'Roboto Mono', monospace;
+}
 
-table {
+#board {
     table-layout:fixed;
     height: 280px;
     width: 280px;
+    font-family: 'Roboto Mono', monospace;
 }
 
-td{    
+#board td{    
     border-radius: 9px;
     text-align: center;
     vertical-align: center;
